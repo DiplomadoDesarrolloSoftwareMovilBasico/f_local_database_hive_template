@@ -6,9 +6,13 @@ import '../../models/random_user_model.dart';
 import '../../models/userdb.dart';
 
 class UserLocalDataSourceHive {
-  addUser(RandomUser user) {}
+  addUser(RandomUser user) {
+    // aquí se debe llamar Hive box add mandando una entrada de UserDB
+  }
 
-  Future<List<RandomUser>> getAllUsers() async {}
+  Future<List<RandomUser>> getAllUsers() async {
+    // aquí se debe llamar
+  }
 
   deleteAll() async {
     logInfo("Deleting all from database");
