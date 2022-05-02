@@ -16,11 +16,15 @@ class UserLocalDataSourceHive {
 
   deleteAll() async {
     logInfo("Deleting all from database");
+    // aquí se debe llamar Hive box clear
   }
 
-  deleteUser(index) async {}
+  deleteUser(index) async {
+    // aquí se debe llamar Hive box deleteAt usando el indice
+  }
 
   updateUser(RandomUser user) async {
     logInfo("Updating entry $user");
+    // aquí se debe llamar Hive box putAt usando el id como referencia y mandando un UserDB
   }
 }
