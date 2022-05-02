@@ -1,18 +1,16 @@
 import 'package:loggy/loggy.dart';
-import '../../data/datasources/local/user_local_datasource_sqflite.dart';
+import '../../data/datasources/local/user_local_datasource_hive.dart';
 import '../../data/datasources/remote/user_remote_datasource.dart';
 import '../entities/random_user.dart';
 
 class UserRepository {
   late UserRemoteDatatasource remoteDataSource;
-  late UserLocalDataSource localDataSource;
-  //late UserLocalDataSourceHive localDataSource;
+  late UserLocalDataSourceHive localDataSource;
 
   UserRepository() {
     logInfo("Starting UserRepository");
     remoteDataSource = UserRemoteDatatasource();
-    localDataSource = UserLocalDataSource();
-    //localDataSource = UserLocalDataSourceHive();
+    localDataSource = UserLocalDataSourceHive();
   }
 
   Future<bool> getUser() async {
