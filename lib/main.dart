@@ -1,7 +1,7 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:loggy/loggy.dart';
 import 'core/network_info.dart';
 import 'data/models/userdb.dart';
@@ -13,11 +13,9 @@ import 'package:path_provider/path_provider.dart' as path_provider;
 
 Future<List<Box>> _openBox() async {
   List<Box> boxList = [];
-  var dir = await path_provider.getApplicationDocumentsDirectory();
-  Hive.init(dir.path);
+  await Hive.initFlutter();
   Hive.registerAdapter(UserDBAdapter());
-  var user_session = await Hive.openBox("users");
-  boxList.add(user_session);
+  boxList.add(await Hive.openBox("users"));
   return boxList;
 }
 
